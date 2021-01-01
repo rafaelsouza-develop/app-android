@@ -15,4 +15,7 @@ interface AuthService {
 
     @POST("auth/register")
     suspend fun register(@Body registerRequest: RegisterRequest): Response<RegisterResponse>
+
+    @POST("auth/forgot_password")
+    suspend fun forgotPassword(@Body email: String): Response<Boolean>
 }
