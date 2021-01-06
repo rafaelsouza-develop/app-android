@@ -21,17 +21,22 @@ class LoginViewModel(
     private val _loginLiveData = MutableLiveData<ViewState<LoginResponse, ResponseStatus>>()
     val loginLiveData: LiveData<ViewState<LoginResponse, ResponseStatus>> = _loginLiveData
 
-    fun login(loginRequest: LoginRequest) {
+    fun callLogin(loginRequest: LoginRequest){
+        login(loginRequest)
+    }
+
+    private fun login(loginRequest: LoginRequest) {
         scope.launch(dispatcherProvider.ui) {
             _loginLiveData.postValue(ViewState(status = ResponseStatus.LOADING))
             when (val response = repository.login(loginRequest)) {
+
                 is Result.Success -> {
                     response.data.token?.let {
-
+                        _loginLiveData.postValue(ViewState(response.data, ResponseStatus.SUCCESS))
                     }
                 }
                 is Result.Failure -> {
-
+                    _loginLiveData.postValue(ViewState(null, ResponseStatus.ERROR, response.throwable))
                 }
             }
         }
