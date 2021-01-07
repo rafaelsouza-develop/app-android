@@ -1,4 +1,4 @@
-package br.com.app4pets.app.network
+package br.com.app4pets.app.data.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

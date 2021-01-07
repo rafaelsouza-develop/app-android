@@ -9,7 +9,7 @@ import br.com.app4pets.app.R
 import br.com.app4pets.app.models.ResponseStatus
 import br.com.app4pets.app.modules.home.HomeActivity
 import br.com.app4pets.app.modules.register.RegisterActivity
-import br.com.app4pets.app.network.models.LoginRequest
+import br.com.app4pets.app.data.network.models.LoginRequest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener {
             if (verifyFields()) {
-                viewModel.callLogin(LoginRequest(edtEmail.text.toString(), edtPass.text.toString()))
+                viewModel.login(LoginRequest(edtEmail.text.toString(), edtPass.text.toString()))
             }
         }
     }

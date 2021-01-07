@@ -1,9 +1,9 @@
-package br.com.app4pets.app.network
+package br.com.app4pets.app.data.network
 
-import br.com.app4pets.app.network.models.LoginRequest
-import br.com.app4pets.app.network.models.LoginResponse
-import br.com.app4pets.app.network.models.RegisterRequest
-import br.com.app4pets.app.network.models.RegisterResponse
+import br.com.app4pets.app.data.network.models.LoginRequest
+import br.com.app4pets.app.data.network.models.LoginResponse
+import br.com.app4pets.app.data.network.models.RegisterRequest
+import br.com.app4pets.app.data.network.models.RegisterResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST

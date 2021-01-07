@@ -1,14 +1,17 @@
 package br.com.app4pets.app.repository.auth
 
-import br.com.app4pets.app.network.models.LoginResponse
-import br.com.app4pets.app.network.AuthService
-import br.com.app4pets.app.network.Result
-import br.com.app4pets.app.network.models.LoginRequest
-import br.com.app4pets.app.network.models.RegisterRequest
-import br.com.app4pets.app.network.models.RegisterResponse
+import br.com.app4pets.app.data.local.CredentialsDao
+import br.com.app4pets.app.data.network.models.LoginResponse
+import br.com.app4pets.app.data.network.AuthService
+import br.com.app4pets.app.data.network.Result
+import br.com.app4pets.app.data.network.models.LoginRequest
+import br.com.app4pets.app.data.network.models.RegisterRequest
+import br.com.app4pets.app.data.network.models.RegisterResponse
 
 
-class AuthRepositoryImpl(private val authService: AuthService) : AuthRepository {
+class AuthRepositoryImpl(
+    private val authService: AuthService
+) : AuthRepository {
 
     override suspend fun login(loginRequest: LoginRequest): Result<LoginResponse> {
         val response = authService.login(loginRequest)

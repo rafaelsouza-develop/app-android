@@ -2,11 +2,11 @@ package br.com.app4pets.app.modules.login
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import br.com.app4pets.app.network.Result
+import br.com.app4pets.app.data.network.Result
 import br.com.app4pets.app.base.ViewState
 import br.com.app4pets.app.models.ResponseStatus
-import br.com.app4pets.app.network.models.LoginRequest
-import br.com.app4pets.app.network.models.LoginResponse
+import br.com.app4pets.app.data.network.models.LoginRequest
+import br.com.app4pets.app.data.network.models.LoginResponse
 import br.com.app4pets.app.repository.auth.AuthRepository
 import br.com.app4pets.app.testeutils.TestCoroutineContextProvider
 import io.mockk.coEvery
@@ -51,7 +51,7 @@ class LoginViewModelTest {
     fun `WHEN callLogin is called THEN it should call login`() {
 
         coEvery { authRepository.login(loginRequest) } returns loginResponse
-        instantiate().callLogin(loginRequest)
+        instantiate().login(loginRequest)
 
         coVerify {
             loginEventObserver.onChanged(ViewState(null, ResponseStatus.SUCCESS))
