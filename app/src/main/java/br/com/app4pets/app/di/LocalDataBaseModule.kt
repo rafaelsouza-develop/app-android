@@ -5,5 +5,5 @@ import br.com.app4pets.app.data.local.CredentialsDaoImpl
 import org.koin.dsl.module
 
 val localDataBaseModule = module {
-    factory<CredentialsDao> { CredentialsDaoImpl() }
+    factory<CredentialsDao> { CredentialsDaoImpl(get()) }
 }

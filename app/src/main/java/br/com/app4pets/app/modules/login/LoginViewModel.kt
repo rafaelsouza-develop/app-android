@@ -28,7 +28,6 @@ class LoginViewModel(
         scope.launch(dispatcherProvider.ui) {
             _loginLiveData.postValue(ViewState(status = ResponseStatus.LOADING))
             when (val response = repository.login(loginRequest)) {
-
                 is Result.Success -> {
                     response.data.token?.let {
                         credentialsDao.saveToken(it)
