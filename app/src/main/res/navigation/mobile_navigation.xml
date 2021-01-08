@@ -22,4 +22,10 @@
         android:name="br.com.app4pets.app.modules.home.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_pets"
+        android:name="br.com.app4pets.app.modules.home.ui.pets.PetsFragment"
+        android:label="@string/title_pets_hand"
+        tools:layout="@layout/fragment_pets" />
 </navigation>
