@@ -66,7 +66,8 @@
         android:background="@drawable/shape_outline_white"
         android:ems="10"
         android:hint="Data de Nasc."
-        android:inputType="numberPassword"
+        android:inputType="text"
+        android:maxLength="10"
         android:padding="20dp"
         android:textColor="@color/textColorHint"
         android:textColorHint="@color/textColorHint"
@@ -94,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtBurthiday" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
