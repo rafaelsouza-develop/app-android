@@ -9,7 +9,8 @@ data class LoginResponse(
     var user: User?,
 
     @SerializedName("token")
-    var token: String?
+    var token: String?,
 
-
+    @SerializedName("error")
+    var error: String?
 )

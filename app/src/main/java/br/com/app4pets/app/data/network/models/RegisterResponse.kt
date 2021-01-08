@@ -6,6 +6,9 @@ import com.google.gson.annotations.SerializedName
 class RegisterResponse (
 
     @SerializedName("user")
-    var user: User?
+    var user: User?,
+
+    @SerializedName("error")
+    var error: String?
 
 )

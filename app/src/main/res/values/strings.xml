@@ -4,4 +4,26 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <!-- Base Activity-->
+    <string name="waiting">Aguarde...</string>
+
+    <!-- Login Activity-->
+    <string name="message_error_invalid_login">Usuário/Senha invalido</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Senha</string>
+    <string name="label_button_register">CADASTRAR-SE</string>
+    <string name="label_button_forgot_password">LEMBRAR SENHA</string>
+    <string name="label_button_login">Login</string>
+    <string name="logo_content_description">icone com formato de cachorro e em baixo o texto app for pets</string>
+
+    <!-- Register Activity-->
+    <string name="message_error_invalid_register">Algo de errado aconteceu,/n tente novamente mais tarde</string>
+    <string name="hint_name_register">Nome</string>
+    <string name="hint_email_register">E-mail</string>
+    <string name="hist_birthiday_register">Data de Nasc.</string>
+    <string name="hint_password_register">Senha</string>
+    <string name="label_button_register_register">Registrar</string>
+
+
 </resources>

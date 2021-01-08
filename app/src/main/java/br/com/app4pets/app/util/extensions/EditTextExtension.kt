@@ -21,16 +21,13 @@ fun EditText.showDatePicker(context: Context) {
         DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
 
 
-            var dayString = ""
-            var mounthString = ""
-
-            dayString = if(dayOfMonth<10){
+            var dayString: String = if(dayOfMonth<10){
                 "0$dayOfMonth"
             }else{
                 dayOfMonth.toString()
             }
 
-            mounthString = if(monthOfYear<10){
+            var mounthString: String = if(monthOfYear<10){
                 "0${monthOfYear+1}"
             }else{
                 (monthOfYear+1).toString()

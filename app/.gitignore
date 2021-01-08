@@ -1,4 +1,5 @@
 /build
 .idea/
+.idea/modules
 .gradle/
 .gradle/6.1.1/

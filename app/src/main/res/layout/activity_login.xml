@@ -15,7 +15,8 @@
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/logo_content_description" />
 
     <EditText
         android:id="@+id/edtEmail"
@@ -26,7 +27,7 @@
         android:layout_marginEnd="32dp"
         android:textColor="@color/textColorHint"
         android:textColorHint="@color/textColorHint"
-        android:hint="E-mail"
+        android:hint="@string/hint_email"
         android:padding="20dp"
         android:background="@drawable/shape_outline_white"
         android:ems="10"
@@ -34,7 +35,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
 
     <EditText
@@ -46,21 +48,22 @@
         android:layout_marginEnd="32dp"
         android:textColor="@color/textColorHint"
         android:textColorHint="@color/textColorHint"
-        android:hint="Senha"
+        android:hint="@string/hint_password"
         android:padding="20dp"
         android:background="@drawable/shape_outline_white"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/txtRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
-        android:text="CADASTRAR-SE"
+        android:text="@string/label_button_register"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="LEMBRAR SENHA"
+        android:text="@string/label_button_forgot_password"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,13 +85,13 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="64dp"
         android:background="@drawable/shape_button_white"
-        android:text="Login"
+        android:text="@string/label_button_login"
         android:textColor="@color/textColorButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

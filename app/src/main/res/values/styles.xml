@@ -25,7 +25,7 @@
     <style name="DialogTheme" parent="Theme.AppCompat.Light">
         <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="android:headerBackground">@color/colorPrimaryDark</item>
-        <item name="android:selectedDateVerticalBar">@color/colorPrimaryDark</item>
+        <item name="android:datePickerMode">calendar</item>
     </style>
 
 </resources>

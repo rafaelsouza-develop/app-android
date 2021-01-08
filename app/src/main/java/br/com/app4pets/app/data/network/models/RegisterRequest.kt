@@ -7,5 +7,5 @@ class RegisterRequest(
     var name: String,
     var email: String,
     var password: String,
-    var birthday: Date
+    var birthday: String?
 )

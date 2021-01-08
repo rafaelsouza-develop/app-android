@@ -1,19 +1,22 @@
 package br.com.app4pets.app.modules.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import br.com.app4pets.app.R
+import br.com.app4pets.app.base.BaseActivity
 import br.com.app4pets.app.models.ResponseStatus
 import br.com.app4pets.app.modules.home.HomeActivity
 import br.com.app4pets.app.modules.register.RegisterActivity
 import br.com.app4pets.app.data.network.models.LoginRequest
+import br.com.app4pets.app.util.validatehelper.ValidateHelperImpl.isValidEmail
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.edtEmail
+import kotlinx.android.synthetic.main.activity_login.edtPass
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     private val viewModel: LoginViewModel by viewModel()
 
@@ -40,14 +43,19 @@ class LoginActivity : AppCompatActivity() {
     private fun setupObserverViewState(viewModel: LoginViewModel) {
         viewModel.loginLiveData.observe(this, Observer { viewState ->
             when (viewState.status) {
+                ResponseStatus.LOADING -> showProgressDialog()
+                ResponseStatus.UNLOADING -> dismissProgressDialog()
                 ResponseStatus.SUCCESS -> goToHomeScreen()
-                ResponseStatus.ERROR -> showMessageError(viewState.error)
+                ResponseStatus.ERROR -> showMessageError()
+                else -> dismissProgressDialog()
             }
         })
     }
 
-    private fun showMessageError(error: Throwable?) {
-        Toast.makeText(this, error?.localizedMessage, Toast.LENGTH_LONG).show()
+    private fun showMessageError() {
+        dismissProgressDialog()
+        Toast.makeText(this, getString(R.string.message_error_invalid_login), Toast.LENGTH_LONG)
+            .show()
     }
 
     private fun goToHomeScreen() {
@@ -56,7 +64,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun verifyFields(): Boolean {
-        return if (edtEmail.text.isEmpty() || edtPass.text!!.isEmpty()) {
+        return if (edtEmail.text.isEmpty() || edtPass.text!!.isEmpty() || !isValidEmail(edtEmail.text.toString())) {
+            if (!isValidEmail(edtEmail.text.toString())) edtEmail.error = "Email com formato invalido"
             if (edtEmail.text.isEmpty()) edtEmail.error = "Campo obrigatorio"
             if (edtPass.text!!.isEmpty()) edtPass.error = "Campo obrigatorio"
             false
@@ -64,4 +73,5 @@ class LoginActivity : AppCompatActivity() {
             true
         }
     }
+
 }
