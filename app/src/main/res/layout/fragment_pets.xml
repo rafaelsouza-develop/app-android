@@ -26,13 +26,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPets"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="32dp"
-        android:paddingTop="40dp"
         android:background="@drawable/shape_background_recycler_pets"
+        android:paddingTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pets"
         tools:layout_editor_absoluteX="0dp"
-        tools:listitem="@layout/item_pets"/>
+        tools:listitem="@layout/item_pets" />
 
     <ImageView
         android:layout_width="wrap_content"
