@@ -11,5 +11,5 @@ val viewModelModule = module {
     factory { DispatcherProvider() }
     factory { LoginViewModel(get(), get(), get()) }
     factory { RegisterViewModel(get(), get()) }
-    factory { PetsViewModel(get()) }
+    factory { PetsViewModel(get(), get()) }
 }

@@ -1,6 +1,7 @@
 package br.com.app4pets.app.di
 
 import br.com.app4pets.app.data.network.AuthService
+import br.com.app4pets.app.data.network.PetService
 import br.com.app4pets.app.data.network.RequestInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -15,5 +16,7 @@ val networkModule = module {
             .build()
     }
     single { get<Retrofit>().create(AuthService::class.java) }
+
+    single { get<Retrofit>().create(PetService::class.java) }
 
 }

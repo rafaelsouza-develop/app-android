@@ -1,22 +1,34 @@
 package br.com.app4pets.app.modules.home.ui.pets
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import br.com.app4pets.app.R
+import br.com.app4pets.app.models.Pet
+import kotlinx.android.synthetic.main.item_pets.view.*
 
-class PetsAdapter(): RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
+class PetsAdapter(private val pets: ArrayList<Pet>): RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pets, parent, false)
+        return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount()= pets.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val pet = pets[position]
+
+        with(holder.itemView){
+            petBreed.text = pet.breed
+            petName.text = pet.name
+        }
+
+
     }
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }

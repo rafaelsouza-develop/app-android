@@ -25,6 +25,7 @@
     <string name="hist_birthiday_register">Data de Nasc.</string>
     <string name="hint_password_register">Senha</string>
     <string name="label_button_register_register">Registrar</string>
+    <string name="label_name_item_pets">Anubis</string>
 
 
 </resources>

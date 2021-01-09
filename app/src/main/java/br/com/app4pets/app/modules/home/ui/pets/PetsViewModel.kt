@@ -1,8 +1,50 @@
 package br.com.app4pets.app.modules.home.ui.pets
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import br.com.app4pets.app.base.BaseViewModel
+import br.com.app4pets.app.base.ViewState
+import br.com.app4pets.app.data.network.Result
+import br.com.app4pets.app.data.network.models.LoginResponse
+import br.com.app4pets.app.data.network.models.PetResponse
+import br.com.app4pets.app.models.ResponseStatus
+import br.com.app4pets.app.repository.pets.PetsRepository
 import br.com.app4pets.app.util.DispatcherProvider
+import kotlinx.coroutines.launch
 
-class PetsViewModel(private val dispatcherProvider: DispatcherProvider) :
+class PetsViewModel(
+    private val dispatcherProvider: DispatcherProvider,
+    private val petsRepository: PetsRepository
+) :
     BaseViewModel(dispatcherProvider) {
+
+    private val _petsLiveData = MutableLiveData<ViewState<PetResponse, ResponseStatus>>()
+    val petsLiveData: LiveData<ViewState<PetResponse, ResponseStatus>> = _petsLiveData
+
+    fun listPets() {
+        scope.launch(dispatcherProvider.ui) {
+            _petsLiveData.postValue(ViewState(status = ResponseStatus.LOADING))
+            when (val response = petsRepository.listPets()) {
+                is Result.Success -> {
+                    _petsLiveData.postValue(ViewState(status = ResponseStatus.UNLOADING))
+                    if (response.data.items.size > 0) {
+                        _petsLiveData.postValue(ViewState(response.data, ResponseStatus.SUCCESS))
+                    } else {
+                        _petsLiveData.postValue(ViewState(null, ResponseStatus.EMPTY_LIST))
+                    }
+                }
+                is Result.Failure -> {
+                    _petsLiveData.postValue(ViewState(status = ResponseStatus.UNLOADING))
+                    _petsLiveData.postValue(
+                        ViewState(
+                            null,
+                            ResponseStatus.ERROR,
+                            response.throwable
+                        )
+                    )
+                }
+            }
+
+        }
+    }
 }
