@@ -45,7 +45,7 @@ class PetsFragment : Fragment() {
                 ResponseStatus.LOADING -> (activity as HomeActivity).showProgressDialog()
                 ResponseStatus.UNLOADING -> (activity as HomeActivity).dismissProgressDialog()
                 ResponseStatus.EMPTY_LIST -> setupEmptyList()
-                ResponseStatus.SUCCESS -> setRecyclerViewList(viewState.data!!.items)
+                ResponseStatus.SUCCESS -> setRecyclerViewList(viewState.data!!)
                 ResponseStatus.ERROR -> setupError()
             }
         })
@@ -62,7 +62,7 @@ class PetsFragment : Fragment() {
     }
 
     private fun setRecyclerViewList(petsList: ArrayList<Pet>) {
-
+        (activity as HomeActivity).dismissProgressDialog()
         recyclerPets.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = PetsAdapter(petsList)

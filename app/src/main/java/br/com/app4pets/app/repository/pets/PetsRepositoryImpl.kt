@@ -8,7 +8,7 @@ import org.koin.ext.scope
 
 class PetsRepositoryImpl(private val petService: PetService) : PetsRepository {
 
-    override suspend fun listPets(): Result<PetResponse> {
+    override suspend fun listPets(): Result<ArrayList<Pet>> {
         val response = petService.listPets()
         if (response.isSuccessful) {
             return Result.Success(response.body()!!)

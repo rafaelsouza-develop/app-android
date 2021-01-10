@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.app4pets.app.R
 import br.com.app4pets.app.models.Pet
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_pets.view.*
 
-class PetsAdapter(private val pets: ArrayList<Pet>): RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
-
+class PetsAdapter(private val pets: ArrayList<Pet>) :
+    RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -17,14 +18,18 @@ class PetsAdapter(private val pets: ArrayList<Pet>): RecyclerView.Adapter<PetsAd
         return ViewHolder(view)
     }
 
-    override fun getItemCount()= pets.size
+    override fun getItemCount() = pets.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pet = pets[position]
 
-        with(holder.itemView){
+        with(holder.itemView) {
             petBreed.text = pet.breed
             petName.text = pet.name
+
+            pet.thumbnail.let {
+                Picasso.get().load(pet.thumbnail).into(imgPictureProfilePet)
+            }
         }
 
 

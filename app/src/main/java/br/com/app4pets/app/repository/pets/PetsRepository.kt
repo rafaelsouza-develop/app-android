@@ -6,7 +6,7 @@ import br.com.app4pets.app.data.network.models.PetResponse
 
 interface PetsRepository {
 
-    suspend fun listPets(): Result<PetResponse>
+    suspend fun listPets(): Result<ArrayList<Pet>>
 
     suspend fun createPet() : Result<Pet>
 }

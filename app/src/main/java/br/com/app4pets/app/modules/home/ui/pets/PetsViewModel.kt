@@ -7,6 +7,7 @@ import br.com.app4pets.app.base.ViewState
 import br.com.app4pets.app.data.network.Result
 import br.com.app4pets.app.data.network.models.LoginResponse
 import br.com.app4pets.app.data.network.models.PetResponse
+import br.com.app4pets.app.models.Pet
 import br.com.app4pets.app.models.ResponseStatus
 import br.com.app4pets.app.repository.pets.PetsRepository
 import br.com.app4pets.app.util.DispatcherProvider
@@ -18,8 +19,8 @@ class PetsViewModel(
 ) :
     BaseViewModel(dispatcherProvider) {
 
-    private val _petsLiveData = MutableLiveData<ViewState<PetResponse, ResponseStatus>>()
-    val petsLiveData: LiveData<ViewState<PetResponse, ResponseStatus>> = _petsLiveData
+    private val _petsLiveData = MutableLiveData<ViewState<ArrayList<Pet>, ResponseStatus>>()
+    val petsLiveData: LiveData<ViewState<ArrayList<Pet>, ResponseStatus>> = _petsLiveData
 
     fun listPets() {
         scope.launch(dispatcherProvider.ui) {
@@ -27,7 +28,7 @@ class PetsViewModel(
             when (val response = petsRepository.listPets()) {
                 is Result.Success -> {
                     _petsLiveData.postValue(ViewState(status = ResponseStatus.UNLOADING))
-                    if (response.data.items.size > 0) {
+                    if (response.data.size > 0) {
                         _petsLiveData.postValue(ViewState(response.data, ResponseStatus.SUCCESS))
                     } else {
                         _petsLiveData.postValue(ViewState(null, ResponseStatus.EMPTY_LIST))
