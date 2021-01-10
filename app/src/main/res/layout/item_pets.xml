@@ -8,8 +8,9 @@
 
     <ImageView
         android:id="@+id/imgPictureProfilePet"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/shape_rounded_image"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"

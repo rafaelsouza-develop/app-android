@@ -28,11 +28,12 @@ class PetsAdapter(private val pets: ArrayList<Pet>) :
             petName.text = pet.name
 
             pet.thumbnail.let {
-                Picasso.get().load(pet.thumbnail).into(imgPictureProfilePet)
+                Picasso.get()
+                    .load(pet.thumbnail)
+                    .placeholder(R.drawable.foto_pet)
+                    .into(imgPictureProfilePet)
             }
         }
-
-
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
