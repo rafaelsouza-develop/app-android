@@ -44,6 +44,7 @@ class PetProfileActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
+            setHomeButtonEnabled(true)
             title = pet?.name
         }
     }
