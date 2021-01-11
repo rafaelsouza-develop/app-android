@@ -1,9 +1,12 @@
 package br.com.app4pets.app.models
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import java.util.*
 
-class Pet(
+@Parcelize
+open class Pet(
 
     @SerializedName("_id")
     var id: String?,
@@ -23,4 +26,4 @@ class Pet(
     @SerializedName("dateOfBirth")
     var dateOfBirth: Date?
 
-)
+): Parcelable

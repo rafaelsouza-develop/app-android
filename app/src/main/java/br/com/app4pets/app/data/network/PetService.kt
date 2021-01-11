@@ -7,6 +7,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface PetService {
 
@@ -15,6 +16,9 @@ interface PetService {
 
     @POST
     suspend fun createPet(@Body petRequest: PetRequest): Response<PetResponse>
+
+    @GET("pet/index/{id}")
+    suspend fun getPetById(@Path("id") id: String) : Response<Pet>
 
 
 }

@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".modules.petprofile.PetProfileActivity"
+            android:label="@string/title_activity_pet_profile"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".modules.home.HomeActivity"
             android:label="@string/title_activity_home">
@@ -22,12 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".modules.login.LoginActivity" />
-        <activity
-            android:name=".modules.forgotpassword.ForgotPasswordActivity"/>
-        <activity
-            android:name=".modules.register.RegisterActivity" />
+        <activity android:name=".modules.login.LoginActivity" />
+        <activity android:name=".modules.forgotpassword.ForgotPasswordActivity" />
+        <activity android:name=".modules.register.RegisterActivity" />
     </application>
 
 </manifest>

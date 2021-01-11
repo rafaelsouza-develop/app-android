@@ -1,5 +1,6 @@
 package br.com.app4pets.app.modules.home.ui.pets
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +13,12 @@ import br.com.app4pets.app.R
 import br.com.app4pets.app.models.Pet
 import br.com.app4pets.app.models.ResponseStatus
 import br.com.app4pets.app.modules.home.HomeActivity
+import br.com.app4pets.app.modules.petprofile.PetProfileActivity
 import br.com.app4pets.app.util.extensions.hideKeyboard
 import kotlinx.android.synthetic.main.fragment_pets.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PetsFragment : Fragment() {
+class PetsFragment : Fragment(), PetsAdapter.PetsAdapterListner {
 
     private val viewModel: PetsViewModel by viewModel()
 
@@ -24,7 +26,6 @@ class PetsFragment : Fragment() {
         super.onCreate(savedInstanceState)
         setupObserverViewState(viewModel)
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,10 +66,14 @@ class PetsFragment : Fragment() {
         (activity as HomeActivity).dismissProgressDialog()
         recyclerPets.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = PetsAdapter(petsList)
+            adapter = PetsAdapter(petsList, this@PetsFragment)
             activity?.hideKeyboard(this)
         }
     }
 
-
+    override fun goToPetProfile(pet: Pet) {
+        val intent = Intent(requireContext(), PetProfileActivity::class.java)
+        intent.putExtra(PetProfileActivity.PET, pet)
+        startActivity(intent)
+    }
 }

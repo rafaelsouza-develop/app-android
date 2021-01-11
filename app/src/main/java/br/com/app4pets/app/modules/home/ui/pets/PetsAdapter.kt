@@ -9,7 +9,7 @@ import br.com.app4pets.app.models.Pet
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_pets.view.*
 
-class PetsAdapter(private val pets: ArrayList<Pet>) :
+class PetsAdapter(private val pets: ArrayList<Pet>, private val listner: PetsAdapterListner) :
     RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
 
 
@@ -33,8 +33,16 @@ class PetsAdapter(private val pets: ArrayList<Pet>) :
                     .placeholder(R.drawable.foto_pet)
                     .into(imgPictureProfilePet)
             }
+
+            setOnClickListener {
+                listner.goToPetProfile(pet)
+            }
         }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+    interface PetsAdapterListner{
+        fun goToPetProfile(pet:Pet)
+    }
 }

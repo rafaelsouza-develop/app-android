@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".modules.petprofile.PetProfileActivity"
+    tools:showIn="@layout/activity_pet_profile">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/lblTitleBreed"
+            android:layout_width="27dp"
+            android:layout_height="14dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="500dp"
+            android:gravity="top"
+            android:text="@string/lbl_title_breed"
+            android:textAppearance="@style/ra_a"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblTitleEspecie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:gravity="top"
+            android:text="@string/lbl_title_specie"
+            android:textAppearance="@style/ra_a"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtBreed" />
+
+        <TextView
+            android:id="@+id/lblTitleBirthiday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="32dp"
+            android:gravity="top"
+            android:text="@string/lbl_title_burthiday"
+            android:textAppearance="@style/ra_a"
+            app:layout_constraintStart_toStartOf="@+id/lblTitleGenre"
+            app:layout_constraintTop_toBottomOf="@+id/txtGenre" />
+
+        <TextView
+            android:id="@+id/lblTitleGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginBottom="500dp"
+            android:gravity="top"
+            android:text="@string/lbl_title_genre"
+            android:textAppearance="@style/ra_a"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/txtBreed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:gravity="top"
+            android:text="@string/txt_breed"
+            android:textAppearance="@style/buldogue_fr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblTitleBreed" />
+
+        <TextView
+            android:id="@+id/txtEspecie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:gravity="top"
+            android:text="@string/txt_especie"
+            android:textAppearance="@style/buldogue_fr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblTitleEspecie" />
+
+        <TextView
+            android:id="@+id/txtBurthiday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="top"
+            android:text="@string/txt_burthiday"
+            android:textAppearance="@style/buldogue_fr"
+            app:layout_constraintStart_toStartOf="@+id/lblTitleBirthiday"
+            app:layout_constraintTop_toBottomOf="@+id/lblTitleBirthiday" />
+
+        <TextView
+            android:id="@+id/txtGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="4dp"
+            android:gravity="top"
+            android:text="@string/txt_genre"
+            android:textAppearance="@style/buldogue_fr"
+            app:layout_constraintStart_toStartOf="@+id/lblTitleGenre"
+            app:layout_constraintTop_toBottomOf="@+id/lblTitleGenre" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="40dp"
+            android:background="#E5E5E5"
+            app:layout_constraintTop_toBottomOf="@+id/txtEspecie"
+            tools:layout_editor_absoluteX="-38dp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="32dp"
+            android:background="#E5E5E5"
+            app:layout_constraintTop_toBottomOf="@+id/label_geolocation"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <ImageView
+            android:id="@+id/img_medical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/ic_medical"
+            app:layout_constraintEnd_toStartOf="@+id/img_geolocation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <ImageView
+            android:id="@+id/img_geolocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/ic_feather_map_pin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <ImageView
+            android:id="@+id/img_collar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_collar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_geolocation"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/label_medical_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="4dp"
+            android:gravity="center_horizontal|top"
+            android:text="@string/txt_medical"
+            android:textAppearance="@style/ficha_m_dic"
+            app:layout_constraintEnd_toEndOf="@+id/img_medical"
+            app:layout_constraintStart_toStartOf="@+id/img_medical"
+            app:layout_constraintTop_toBottomOf="@+id/img_medical" />
+
+        <TextView
+            android:id="@+id/label_geolocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="4dp"
+            android:gravity="center_horizontal|top"
+            android:text="@string/txt_geolocation"
+            android:textAppearance="@style/ficha_m_dic"
+            app:layout_constraintEnd_toEndOf="@+id/img_geolocation"
+            app:layout_constraintStart_toStartOf="@+id/img_geolocation"
+            app:layout_constraintTop_toBottomOf="@+id/img_geolocation" />
+
+        <TextView
+            android:id="@+id/label_collar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="4dp"
+            android:gravity="center_horizontal|top"
+            android:text="+ Coleira"
+            android:textAppearance="@style/ficha_m_dic"
+            app:layout_constraintEnd_toEndOf="@+id/img_collar"
+            app:layout_constraintStart_toStartOf="@+id/img_collar"
+            app:layout_constraintTop_toBottomOf="@+id/img_collar" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_collar_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <TextView
+            android:id="@+id/txt_collar_isActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:gravity="top"
+            android:text="@string/txt_collar_actvivated"
+            android:textAppearance="@style/coleira_ati"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+        <TextView
+            android:id="@+id/txt_name_pet"
+            android:layout_width="110dp"
+            android:layout_height="21dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:gravity="top"
+            android:text="@string/txt_name_pet"
+            android:textAppearance="@style/c_o_coragem"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/txt_collar_isActive" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/shape_outline_red"
+            android:text="@string/label_button_pet_alone"
+            android:textColor="#FF3D00"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>
