@@ -2,6 +2,7 @@ package br.com.app4pets.app.di
 
 import br.com.app4pets.app.modules.home.ui.pets.PetsViewModel
 import br.com.app4pets.app.modules.login.LoginViewModel
+import br.com.app4pets.app.modules.petcreate.PetCreateViewModel
 import br.com.app4pets.app.modules.petprofile.PetProfileViewModel
 import br.com.app4pets.app.modules.register.RegisterViewModel
 import br.com.app4pets.app.util.DispatcherProvider
@@ -14,4 +15,5 @@ val viewModelModule = module {
     factory { RegisterViewModel(get(), get()) }
     factory { PetsViewModel(get(), get()) }
     factory { PetProfileViewModel(get()) }
+    factory { PetCreateViewModel(get(), get()) }
 }

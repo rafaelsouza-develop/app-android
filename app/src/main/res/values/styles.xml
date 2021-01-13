@@ -65,6 +65,11 @@
         <item name="android:textColor">#6C757C</item>
     </style>
 
+    <style name="enviar_foto">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#ADB5BD</item>
+    </style>
+
 
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

@@ -13,6 +13,7 @@ import br.com.app4pets.app.R
 import br.com.app4pets.app.models.Pet
 import br.com.app4pets.app.models.ResponseStatus
 import br.com.app4pets.app.modules.home.HomeActivity
+import br.com.app4pets.app.modules.petcreate.PetCreateActivity
 import br.com.app4pets.app.modules.petprofile.PetProfileActivity
 import br.com.app4pets.app.util.extensions.hideKeyboard
 import kotlinx.android.synthetic.main.fragment_pets.*
@@ -25,6 +26,7 @@ class PetsFragment : Fragment(), PetsAdapter.PetsAdapterListner {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupObserverViewState(viewModel)
+
     }
 
     override fun onCreateView(
@@ -38,6 +40,11 @@ class PetsFragment : Fragment(), PetsAdapter.PetsAdapterListner {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.listPets()
+        setListners()
+    }
+
+    private fun setListners(){
+        imgNewPet.setOnClickListener { openCreatePet() }
     }
 
     private fun setupObserverViewState(viewModel: PetsViewModel) {
@@ -74,6 +81,11 @@ class PetsFragment : Fragment(), PetsAdapter.PetsAdapterListner {
     override fun goToPetProfile(pet: Pet) {
         val intent = Intent(requireContext(), PetProfileActivity::class.java)
         intent.putExtra(PetProfileActivity.PET, pet)
+        startActivity(intent)
+    }
+
+    private fun openCreatePet(){
+        val intent = Intent(requireContext(), PetCreateActivity::class.java)
         startActivity(intent)
     }
 }

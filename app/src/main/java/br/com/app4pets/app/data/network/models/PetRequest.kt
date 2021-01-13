@@ -5,7 +5,7 @@ import java.util.*
 class PetRequest(
     var name: String,
     var breed: String,
-    var dateOfBirth: Date,
+    var dateOfBirth: String,
     var color: String
 
 )

@@ -44,6 +44,7 @@
     <string name="txt_collar_actvivated">Coleira Ativada</string>
     <string name="txt_name_pet">Cão Coragem</string>
     <string name="label_button_pet_alone">PET PERDIDO</string>
+    <string name="hint_name_create_pet">Nome</string>
 
 
 </resources>

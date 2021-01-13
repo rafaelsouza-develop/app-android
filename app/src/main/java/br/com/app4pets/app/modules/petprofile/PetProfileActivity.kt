@@ -1,6 +1,7 @@
 package br.com.app4pets.app.modules.petprofile
 
 import android.os.Bundle
+import android.view.MenuItem
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -47,6 +48,16 @@ class PetProfileActivity : AppCompatActivity() {
             setHomeButtonEnabled(true)
             title = pet?.name
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {

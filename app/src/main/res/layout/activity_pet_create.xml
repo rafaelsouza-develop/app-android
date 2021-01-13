@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".modules.petcreate.PetCreateActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_collapseMode="pin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/shape_background_recycler_pets"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgPicture"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_rounded_image"
+            android:src="@drawable/ic_picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/enviar_foto"
+            android:layout_width="80dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:gravity="top"
+            android:text="Enviar foto"
+            android:textAppearance="@style/enviar_foto"
+            app:layout_constraintEnd_toEndOf="@+id/imgPicture"
+            app:layout_constraintStart_toStartOf="@+id/imgPicture"
+            app:layout_constraintTop_toBottomOf="@+id/imgPicture" />
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="136dp"
+            android:layout_marginEnd="32dp"
+            android:autofillHints=""
+            android:background="@drawable/shape_outline_gray"
+            android:ems="10"
+            android:hint="@string/hint_name_create_pet"
+            android:inputType="textEmailAddress"
+            android:padding="20dp"
+            android:textColor="@color/textColorHint"
+            android:textColorHint="@color/textColorHint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <AutoCompleteTextView
+            android:id="@+id/edtAutoCompleteBreed"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:autofillHints=""
+            android:background="@drawable/shape_outline_gray"
+            android:ems="10"
+            android:hint="Raça"
+            android:inputType="textEmailAddress"
+            android:padding="20dp"
+            android:textColor="@color/textColorHint"
+            android:textColorHint="@color/textColorHint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtName" />
+
+        <EditText
+            android:id="@+id/edtPetBurthiday"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:autofillHints=""
+            android:background="@drawable/shape_outline_gray"
+            android:ems="10"
+            android:hint="Nascimento"
+            android:inputType="textEmailAddress"
+            android:padding="20dp"
+            android:textColor="@color/textColorHint"
+            android:textColorHint="@color/textColorHint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtAutoCompleteBreed" />
+
+        <EditText
+            android:id="@+id/edtPetColor"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:autofillHints=""
+            android:background="@drawable/shape_outline_gray"
+            android:ems="10"
+            android:hint="Cor"
+            android:inputType="textEmailAddress"
+            android:padding="20dp"
+            android:textColor="@color/textColorHint"
+            android:textColorHint="@color/textColorHint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPetBurthiday" />
+
+        <Button
+            android:id="@+id/btnCreatePet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="32dp"
+            android:textSize="16sp"
+            android:text="Adicionar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPetColor" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
