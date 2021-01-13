@@ -5,6 +5,7 @@ import br.com.app4pets.app.data.network.Result
 import br.com.app4pets.app.data.network.models.PetRequest
 import br.com.app4pets.app.data.network.models.PetResponse
 import br.com.app4pets.app.models.Pet
+import okhttp3.MultipartBody
 import org.koin.ext.scope
 
 class PetsRepositoryImpl(private val petService: PetService) : PetsRepository {
@@ -17,7 +18,7 @@ class PetsRepositoryImpl(private val petService: PetService) : PetsRepository {
         return Result.Failure(Throwable("Error ${response.errorBody()} ${response.message()} "))
     }
 
-    override suspend fun createPet(thumbinal: String, pet: PetRequest): Result<Pet> {
+    override suspend fun createPet(thumbinal: MultipartBody.Part, pet: PetRequest): Result<Pet> {
         val response =
             petService.createPet(thumbinal, pet.name, pet.breed, pet.dateOfBirth, pet.color)
         if (response.isSuccessful) {

@@ -26,9 +26,12 @@ import br.com.app4pets.app.modules.register.RegisterActivity
 import br.com.app4pets.app.util.extensions.showDatePicker
 import br.com.app4pets.app.util.extensions.toStringFormat
 import kotlinx.android.synthetic.main.activity_pet_create.*
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.io.ByteArrayOutputStream
-import java.io.IOException
+import java.io.*
 import java.util.*
 
 
@@ -92,8 +95,10 @@ class PetCreateActivity : BaseActivity() {
     }
 
     private fun createPet() {
+
+        var image = buildImageBodyPart("thumbnail", bitmap!!)
         if (verifyFields()) viewModel.createPet(
-            convertToBase64()!!, PetRequest(
+            image, PetRequest(
                 edtName.text.toString(),
                 edtAutoCompleteBreed.text.toString(),
                 Date(edtPetBurthiday.text.toString()).toStringFormat(
@@ -124,7 +129,6 @@ class PetCreateActivity : BaseActivity() {
                 else -> dismissProgressDialog()
             }
         })
-
     }
 
     private fun createPetSuccess(pet: Pet) {
@@ -134,7 +138,6 @@ class PetCreateActivity : BaseActivity() {
     private fun showError() {
         Toast.makeText(this, "Deu Erro", Toast.LENGTH_LONG).show()
     }
-
 
     override fun onActivityResult(
         requestCode: Int,
@@ -156,22 +159,8 @@ class PetCreateActivity : BaseActivity() {
 
                 }
                 TAKE_IMAGE -> if (resultCode == Activity.RESULT_OK && data != null) {
-                    val selectedImage = data.data
-                    val filePathColumn =
-                        arrayOf(MediaStore.Images.Media.DATA)
-                    if (selectedImage != null) {
-                        val cursor: Cursor? = contentResolver.query(
-                            selectedImage,
-                            filePathColumn, null, null, null
-                        )
-                        if (cursor != null) {
-                            cursor.moveToFirst()
-                            val columnIndex: Int = cursor.getColumnIndex(filePathColumn[0])
-                            val picturePath: String = cursor.getString(columnIndex)
-                            imgPicture.setImageBitmap(BitmapFactory.decodeFile(picturePath))
-                            cursor.close()
-                        }
-                    }
+                    bitmap = data.extras?.get("data") as Bitmap
+                    imgPicture.setImageBitmap(bitmap)
                 }
             }
         }
@@ -203,12 +192,34 @@ class PetCreateActivity : BaseActivity() {
         startActivityForResult(intent, GALLERY_IMAGE)
     }
 
+    private fun convertBitmapToFile(fileName: String, bitmap: Bitmap): File {
+        val file = File(this.cacheDir, fileName)
+        file.createNewFile()
 
-    private fun convertToBase64(): String? {
-        val byteArrayOutputStream = ByteArrayOutputStream()
-        bitmap!!.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
-        val imgByte: ByteArray = byteArrayOutputStream.toByteArray()
-        return Base64.encodeToString(imgByte, Base64.DEFAULT)
+        val bos = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100 /*ignored for PNG*/, bos)
+        val bitMapData = bos.toByteArray()
+
+        var fos: FileOutputStream? = null
+        try {
+            fos = FileOutputStream(file)
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        }
+        try {
+            fos?.write(bitMapData)
+            fos?.flush()
+            fos?.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return file
+    }
+
+    private fun buildImageBodyPart(fileName: String, bitmap: Bitmap): MultipartBody.Part {
+        val leftImageFile = convertBitmapToFile(fileName, bitmap)
+        val reqFile = RequestBody.create("image/jpeg".toMediaTypeOrNull(), leftImageFile)
+        return MultipartBody.Part.createFormData(fileName, leftImageFile.name, reqFile)
     }
 
     private fun verifyFields(): Boolean {
@@ -230,9 +241,5 @@ class PetCreateActivity : BaseActivity() {
         const val TAKE_A_PICTURE = "Tirar uma foto"
         const val GET_PICTURE_FROM_GALLERY = "Escolher foto na galeria"
         const val CANCEL = "cancelar"
-        const val PATTERN_DATE_BD = "yyyy-MM-dd"
-
     }
-
-
 }

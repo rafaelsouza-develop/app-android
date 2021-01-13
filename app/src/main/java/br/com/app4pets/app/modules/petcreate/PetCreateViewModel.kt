@@ -11,6 +11,7 @@ import br.com.app4pets.app.models.ResponseStatus
 import br.com.app4pets.app.repository.pets.PetsRepository
 import br.com.app4pets.app.util.DispatcherProvider
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
 
 class PetCreateViewModel(private val dispatcherProvider: DispatcherProvider, private val petsRepository: PetsRepository) :
     BaseViewModel(dispatcherProvider) {
@@ -18,7 +19,7 @@ class PetCreateViewModel(private val dispatcherProvider: DispatcherProvider, pri
     private val _createPetLiveData = MutableLiveData<ViewState<Pet, ResponseStatus>>()
     val createPetLiveData: LiveData<ViewState<Pet, ResponseStatus>> = _createPetLiveData
 
-    fun createPet(thumbnail:String, petRequest: PetRequest){
+    fun createPet(thumbnail: MultipartBody.Part, petRequest: PetRequest){
         scope.launch {
             when (val response = petsRepository.createPet(thumbnail, petRequest)) {
                 is Result.Success -> {
