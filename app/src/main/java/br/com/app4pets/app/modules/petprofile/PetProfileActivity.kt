@@ -21,7 +21,6 @@ class PetProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pet_profile)
 
-
         intent.extras?.let { extras ->
             pet = extras.getParcelable(PET)
             pet?.let { pet ->
@@ -29,8 +28,6 @@ class PetProfileActivity : AppCompatActivity() {
             }
         }
         setupAppBar(toolbar)
-
-
     }
 
     private fun setView(pet: Pet) {
@@ -38,7 +35,6 @@ class PetProfileActivity : AppCompatActivity() {
         txtBreed.text = pet.breed
         txtGenre.text = pet.genre
         txt_name_pet.text = pet.name
-
     }
 
     private fun setupAppBar(toolbar: Toolbar) {
