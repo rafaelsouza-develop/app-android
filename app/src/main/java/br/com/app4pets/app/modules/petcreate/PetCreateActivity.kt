@@ -135,10 +135,21 @@ class PetCreateActivity : BaseActivity() {
 
     private fun createPetSuccess(pet: Pet) {
         dismissProgressDialog()
+        clearView()
         Toast.makeText(this, pet.name, Toast.LENGTH_LONG).show()
     }
 
+    private fun clearView() {
+        imgPicture.setImageDrawable(resources.getDrawable(R.drawable.ic_picture))
+        bitmap = null
+        edtName.setText("")
+        edtAutoCompleteBreed.setText("")
+        edtPetBurthiday.setText("")
+        edtPetColor.setText("")
+    }
+
     private fun showError() {
+        dismissProgressDialog()
         Toast.makeText(this, "Deu Erro", Toast.LENGTH_LONG).show()
     }
 
@@ -200,7 +211,7 @@ class PetCreateActivity : BaseActivity() {
         file.createNewFile()
 
         val bos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100 /*ignored for PNG*/, bos)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos)
         val bitMapData = bos.toByteArray()
 
         var fos: FileOutputStream? = null
