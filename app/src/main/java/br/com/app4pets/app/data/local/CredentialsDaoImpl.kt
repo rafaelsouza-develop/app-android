@@ -2,9 +2,10 @@ package br.com.app4pets.app.data.local
 
 import android.content.Context
 
-class CredentialsDaoImpl(private val context: Context) : CredentialsDao {
+class CredentialsDaoImpl(context: Context) : CredentialsDao {
 
-    private val sharedPreference = context.getSharedPreferences(CREDENTIAL_PREFERENCE_NAME,
+    private val sharedPreference = context.getSharedPreferences(
+        CREDENTIAL_PREFERENCE_NAME,
         Context.MODE_PRIVATE
     )
 
@@ -16,15 +17,15 @@ class CredentialsDaoImpl(private val context: Context) : CredentialsDao {
         edit.apply()
     }
 
-    override suspend fun removeToken() : Boolean {
+    override suspend fun removeToken(): Boolean {
         return sharedPreference
             .edit()
             .remove(CREDENTIAL_ACCESS_TOKEN_KEY)
             .commit()
     }
 
-    override suspend fun getToken(): String? {
-       return sharedPreference
+    override fun getToken(): String? {
+        return sharedPreference
             .getString(CREDENTIAL_ACCESS_TOKEN_KEY, "")
     }
 

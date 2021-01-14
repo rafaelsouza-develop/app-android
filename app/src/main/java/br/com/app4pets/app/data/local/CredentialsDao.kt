@@ -4,7 +4,7 @@ interface CredentialsDao {
 
     suspend fun saveToken(token: String)
 
-    suspend fun removeToken() : Boolean
+    suspend fun removeToken(): Boolean
 
-    suspend fun getToken(): String?
+    fun getToken(): String?
 }

@@ -1,10 +1,15 @@
 package br.com.app4pets.app.data.network
 
+import android.content.Context
+import androidx.navigation.ui.AppBarConfiguration
+import br.com.app4pets.app.App4PetsApplication
+import br.com.app4pets.app.data.local.CredentialsDaoImpl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
-object RequestInterceptor {
+class RequestInterceptorImpl {
 
+    private lateinit var credentialsDao: CredentialsDaoImpl
 
     fun logger(): HttpLoggingInterceptor {
         val logger = HttpLoggingInterceptor()
@@ -13,13 +18,15 @@ object RequestInterceptor {
     }
 
     fun setupOkHttp(): OkHttpClient.Builder {
+        credentialsDao = CredentialsDaoImpl(App4PetsApplication.context)
         val okHttp = OkHttpClient.Builder()
         okHttp.addInterceptor(logger())
         okHttp.addInterceptor { chain ->
             var newRequest = chain.request()
             newRequest = newRequest.newBuilder().addHeader(
                 "Authorization",
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjg4ZmUwN2I0NDg4MDAxN2Q1YWNkOCIsImlhdCI6MTYxMDYyOTI3OSwiZXhwIjoxNjEwNzE1Njc5fQ.OxCESlJrVNWMytQj5ZnjGMres5e7aApWYBMXUbbWAX8").build()
+                "Bearer ${credentialsDao.getToken()}"
+            ).build()
             return@addInterceptor chain.proceed(newRequest)
         }
         return okHttp

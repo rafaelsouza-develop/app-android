@@ -6,11 +6,17 @@ import br.com.app4pets.app.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class App4PetsApplication : Application() {
+open class App4PetsApplication : Application() {
+
+    companion object{
+        lateinit var context: Context
+    }
+
 
     override fun onCreate() {
         super.onCreate()
         setupApp(baseContext)
+        context = this
     }
 
     private fun setupApp(context: Context) {
