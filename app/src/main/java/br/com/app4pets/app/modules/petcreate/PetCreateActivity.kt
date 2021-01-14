@@ -71,6 +71,8 @@ class PetCreateActivity : BaseActivity() {
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setHomeButtonEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+            title = ""
         }
     }
 
@@ -132,6 +134,7 @@ class PetCreateActivity : BaseActivity() {
     }
 
     private fun createPetSuccess(pet: Pet) {
+        dismissProgressDialog()
         Toast.makeText(this, pet.name, Toast.LENGTH_LONG).show()
     }
 

@@ -19,7 +19,7 @@ object RequestInterceptor {
             var newRequest = chain.request()
             newRequest = newRequest.newBuilder().addHeader(
                 "Authorization",
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjg4ZmUwN2I0NDg4MDAxN2Q1YWNkOCIsImlhdCI6MTYxMDU0MjcxNywiZXhwIjoxNjEwNjI5MTE3fQ.od7OPXQ6wUStPh7caAjE5hm8DLx3GYh6ufEJzkS7P68").build()
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjg4ZmUwN2I0NDg4MDAxN2Q1YWNkOCIsImlhdCI6MTYxMDYyOTI3OSwiZXhwIjoxNjEwNzE1Njc5fQ.OxCESlJrVNWMytQj5ZnjGMres5e7aApWYBMXUbbWAX8").build()
             return@addInterceptor chain.proceed(newRequest)
         }
         return okHttp

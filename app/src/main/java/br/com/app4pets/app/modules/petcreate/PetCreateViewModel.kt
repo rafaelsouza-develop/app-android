@@ -20,6 +20,7 @@ class PetCreateViewModel(private val dispatcherProvider: DispatcherProvider, pri
     val createPetLiveData: LiveData<ViewState<Pet, ResponseStatus>> = _createPetLiveData
 
     fun createPet(thumbnail: MultipartBody.Part, petRequest: PetRequest){
+        _createPetLiveData.postValue(ViewState(status = ResponseStatus.LOADING))
         scope.launch {
             when (val response = petsRepository.createPet(thumbnail, petRequest)) {
                 is Result.Success -> {

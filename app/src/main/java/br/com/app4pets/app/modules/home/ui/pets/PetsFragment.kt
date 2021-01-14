@@ -39,8 +39,12 @@ class PetsFragment : Fragment(), PetsAdapter.PetsAdapterListner {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.listPets()
         setListners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.listPets()
     }
 
     private fun setListners(){
