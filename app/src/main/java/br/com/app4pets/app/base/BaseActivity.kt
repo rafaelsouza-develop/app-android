@@ -8,14 +8,14 @@ import dmax.dialog.SpotsDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 open class BaseActivity : AppCompatActivity() {
-    private lateinit var dialog : SpotsDialog
-     val baseViewModel: BaseViewModel by viewModel()
+    private lateinit var dialog: SpotsDialog
+    val baseViewModel: BaseViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     fun showProgressDialog() {
-        dialog =  SpotsDialog.Builder()
+        dialog = SpotsDialog.Builder()
             .setContext(this)
             .setMessage(R.string.waiting)
             .setCancelable(false)
