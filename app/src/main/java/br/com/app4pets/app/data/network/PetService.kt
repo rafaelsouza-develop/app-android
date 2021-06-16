@@ -1,6 +1,6 @@
 package br.com.app4pets.app.data.network
 
-import br.com.app4pets.app.models.Pet
+import br.com.app4pets.app.domain.models.Pet
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*

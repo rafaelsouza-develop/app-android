@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/shape_login_blue"
-    tools:context=".modules.login.LoginActivity">
+    tools:context="br.com.app4pets.app.presentation.auth.login.LoginActivity">
 
     <ImageView
         android:id="@+id/imgLogo"

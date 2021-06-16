@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".modules.home.HomeActivity"
+            android:name="br.com.app4pets.app.presentation.home.HomeActivity"
             android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,12 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".modules.login.LoginActivity" />
-        <activity android:name=".modules.forgotpassword.ForgotPasswordActivity" />
-        <activity android:name=".modules.register.RegisterActivity" />
-        <activity android:name=".modules.petcreate.PetCreateActivity" />
+        <activity android:name="br.com.app4pets.app.presentation.auth.login.LoginActivity" />
+        <activity android:name="br.com.app4pets.app.presentation.auth.forgotpassword.ForgotPasswordActivity" />
+        <activity android:name="br.com.app4pets.app.presentation.auth.register.RegisterActivity" />
+        <activity android:name="br.com.app4pets.app.presentation.pet.petcreate.PetCreateActivity" />
         <activity
-            android:name=".modules.petprofile.PetProfileActivity"
+            android:name="br.com.app4pets.app.presentation.pet.petprofile.PetProfileActivity"
             android:label="@string/title_activity_pet_profile"
             android:theme="@style/AppTheme.NoActionBar" />
 

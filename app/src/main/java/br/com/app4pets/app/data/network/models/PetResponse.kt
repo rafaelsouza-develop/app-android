@@ -1,9 +1,6 @@
 package br.com.app4pets.app.data.network.models
 
-import br.com.app4pets.app.models.Pet
-import br.com.app4pets.app.models.User
-import com.google.gson.annotations.SerializedName
-import java.util.*
+import br.com.app4pets.app.domain.models.Pet
 import kotlin.collections.ArrayList
 
 class PetResponse(

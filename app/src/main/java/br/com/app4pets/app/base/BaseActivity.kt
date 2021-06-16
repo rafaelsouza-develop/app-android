@@ -3,7 +3,6 @@ package br.com.app4pets.app.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.app4pets.app.R
-import br.com.app4pets.app.modules.login.LoginViewModel
 import dmax.dialog.SpotsDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

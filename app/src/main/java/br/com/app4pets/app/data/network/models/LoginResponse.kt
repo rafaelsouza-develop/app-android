@@ -1,6 +1,6 @@
 package br.com.app4pets.app.data.network.models
 
-import br.com.app4pets.app.models.User
+import br.com.app4pets.app.domain.models.User
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(

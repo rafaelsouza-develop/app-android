@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="br.com.app4pets.app.modules.home.ui.home.HomeFragment"
+        android:name="br.com.app4pets.app.presentation.home.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="br.com.app4pets.app.modules.home.ui.dashboard.DashboardFragment"
+        android:name="br.com.app4pets.app.presentation.home.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="br.com.app4pets.app.modules.home.ui.notifications.NotificationsFragment"
+        android:name="br.com.app4pets.app.presentation.home.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/navigation_pets"
-        android:name="br.com.app4pets.app.modules.home.ui.pets.PetsFragment"
+        android:name="br.com.app4pets.app.presentation.home.ui.pets.PetsFragment"
         android:label="@string/title_pets_hand"
         tools:layout="@layout/fragment_pets" />
 </navigation>
