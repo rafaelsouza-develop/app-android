@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "851288188653",
-    "project_id": "app4pets-dev",
-    "storage_bucket": "app4pets-dev.appspot.com"
+    "project_number": "57545372193",
+    "project_id": "app-for-pets",
+    "storage_bucket": "app-for-pets.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:851288188653:android:c21b08c9e36cdaadaa4ee4",
+        "mobilesdk_app_id": "1:57545372193:android:d003609bf81acb7d6da960",
         "android_client_info": {
           "package_name": "br.com.app4pets.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "851288188653-rg0aajgali58tnlr87qds09lg26j4plg.apps.googleusercontent.com",
+          "client_id": "57545372193-j45p4n0vilu9mjo46vihrq6b8r39vih3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDOqw7eu1qgnvhov_g1dTgJM__TYWlalkY"
+          "current_key": "AIzaSyCFzw-cTy9hUBI-dyYemHw1cZLICIs4jvk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "851288188653-rg0aajgali58tnlr87qds09lg26j4plg.apps.googleusercontent.com",
+              "client_id": "57545372193-j45p4n0vilu9mjo46vihrq6b8r39vih3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

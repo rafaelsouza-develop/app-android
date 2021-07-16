@@ -32,12 +32,23 @@ class LoginViewModel(
                     _loginLiveData.postValue(ViewState(status = ResponseStatus.UNLOADING))
                     response.data.token?.let {
                         credentialsDao.saveToken(it)
-                        _loginLiveData.postValue(ViewState(response.data, ResponseStatus.SUCCESS))
+                        _loginLiveData.postValue(
+                            ViewState(
+                                data = response.data,
+                                status = ResponseStatus.SUCCESS
+                            )
+                        )
                     }
                 }
                 is Result.Failure -> {
                     _loginLiveData.postValue(ViewState(status = ResponseStatus.UNLOADING))
-                    _loginLiveData.postValue(ViewState(null, ResponseStatus.ERROR, response.throwable))
+                    _loginLiveData.postValue(
+                        ViewState(
+                            null,
+                            ResponseStatus.ERROR,
+                            response.throwable
+                        )
+                    )
                 }
             }
         }

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "app-for-pets",
+  "private_key_id": "da6649deae88b088e3d88f82902dce19a4789101",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQChvbEewFlkD8wz\nUVObKbYWDjWVYLoe2z5UdXl/TyuQ/SU8KJRZQQHIdImcy+8+UfpK3/wa1cGhdX4m\nhEsxK7wyv0crBN3jpzPh6sRv+FDd0Ux+byYKNxOIseT0mxC8eN+18VjRlKBS3X6w\nQSE3yt+BqJKjJZgCVftIKDlPyen1tzKV6DMsHIS6YQ9Kvoa8aI57YFEWwu0YE5Hl\n1yO5fRt9EORWuEFZvjCw6ml2KO+Za6WMyIFmBF/UPeZIjcpDe0ISrVKSO9iID5IJ\nvwYECAOejyfdEySYjxXssx0mILfCjZkhc5ZmNLQFkSi43CD1Xb+DJepeDUrIRxpz\ne+Uscy35AgMBAAECggEADx/aRxhAy6v0AgT7+tWV0L5rqZAp216QV6zEC6D7P5PC\ndnuLcsSyzlxCbYp+8N6Q141WKWq9cHQYk7C5iMuwjbTICohqGOKO5hRyYc+QPUvX\n+bc6UQh5L8ZF1Q9Gi39ImR6MWg3KR7Ftaj0u5mUWzSy2qKGocyh35tWXFWRZ18eP\nWGvo/0fLjKZluVdu4otNFFOuR0kwtpgh57AyaU7ojMe8HdOw8D15Kgx0XrG7VDi8\nd4jGWAdDahatsfxplK6gwpmVKRYMVgst/RRlmt0kpeXPRjTmMDx2Si4SPTdw3zbo\nPcZxjjM6ALVH/xeir2Y1bHe3zWFu+dOnDxzAluS1EQKBgQDkbmStRqQCCbfkGvSS\n27NGfPg65a1TDFSHkiUjIKxqkMnaWmLK+ykXxfZeYs1/RqtpL9JtarxgAPJjR9Nq\n2IM4Xj9TBnSmmzSg+HKk2Z4Bya7XscQjrGKqsyxzXgonvI2pL6QcVo/KsjqaUdk6\nVQzDOXrxWgodtPh4WJhxuvDYSQKBgQC1QtaWLLPEarQxCmKXgM+Hw+SMw/g67snV\nXHVJVsj1ZtkiM3C5SYxYPUcJ+mNunM0VYggiXr+c+dpKQ13xMjOFC6HH0FxJJv9L\nDnO/fmCw+SGzkoRYxUF5/Z/QWiEN6PdkL4sHThE1qxH6PTugmQVeR5VwHdV42d0y\nzkTqE9uIMQKBgQDkGLudLrmcc1nVg3kOoCUe0LEKFsgA8oIBsdQ1hG3GJ3f3+mNF\n7o/09i7xxtUOL2IAMcl8iqU5dBiVPGaG/VXiVnIDFKIsrzRZPF018TtO67YUGaUS\nPhN0Al/zf0bCsQv/kdvclC8XJutPp0UzczPASUhTciZBzbCCc20du569SQKBgQCW\nhPhZIKnvU4RqrOsOUGMFpMBnvFyn458rVGn5Ct46Grv40Kqs0sx+gfQ57vke44rS\nVOPYVsHbgweoX6TlJADwXKZtnTLldELPeyLXRATbMSaxTdwlMziaKujJRe7o9Cpr\nwac727Ii1PpKyQp45Fk2307TGZMplhE/nVZQ40iMIQKBgQCvW36Ub4dtAn5UUcSI\nlASBRPHptpTZOj8LmdDJJfgqGdn3JGlBnwlRjV4DcinOr4Bc9tsMJGYrHxJQX/D4\nAmaVXVlQfKZ1MCYdDevdxQBh3jOSQnYo7+JV897EnomqXcnjwisibEOcGSCm3rSo\nx1Yu7A/d98zcECVg5xzN3RuueA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-app-distribution@app-for-pets.iam.gserviceaccount.com",
+  "client_id": "108791627883990049626",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-app-distribution%40app-for-pets.iam.gserviceaccount.com"
+}

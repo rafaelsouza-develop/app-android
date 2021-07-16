@@ -1,8 +1,16 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply from: '../dependecies.gradle'
-apply plugin: 'com.google.gms.google-services'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.appdistribution'
+    /*id 'com.github.triplet.play'*/
+}
+
+def keystorePropertiesFile = rootProject.file("app/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 
 android {
     compileSdkVersion 30
@@ -12,16 +20,32 @@ android {
         applicationId "br.com.app4pets.app"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode versions.versionCode
-        versionName versions.versionName
+        versionCode 2
+        versionName '1.0.1'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release{
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            firebaseAppDistribution {
+                appId="1:57545372193:android:d003609bf81acb7d6da960"
+                releaseNotesFile="app/releasenotes.txt"
+                groups="Testadores"
+                serviceCredentialsFile="app/app-for-pets-firebase-dist.json"
+            }
         }
     }
     compileOptions {
@@ -32,6 +56,10 @@ android {
         jvmTarget = '1.8'
     }
 }
+
+/*play {
+    serviceAccountCredentials.set(file("service-acount.json"))
+}*/
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -52,6 +80,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-messaging-ktx'
     implementation 'com.google.firebase:firebase-auth:20.0.2'
+
 
 
     //Teste
@@ -87,9 +116,5 @@ dependencies {
     implementation 'com.github.d-max:spots-dialog:1.1@aar'
     //Rounded ImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
-
-
-
 
 }
