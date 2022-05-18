@@ -2,7 +2,8 @@ package br.com.app4pets.app.presentation.auth.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import br.com.app4pets.app.base.BaseViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import br.com.app4pets.app.base.ViewState
 import br.com.app4pets.app.data.local.CredentialsDao
 import br.com.app4pets.app.domain.models.ResponseStatus
@@ -18,14 +19,14 @@ class LoginViewModel(
     private val dispatcherProvider: DispatcherProvider,
     private val repository: AuthRepository,
     private val credentialsDao: CredentialsDao
-) : BaseViewModel(dispatcherProvider) {
+) : ViewModel(){
 
     private val _loginLiveData = MutableLiveData<ViewState<LoginResponse, ResponseStatus>>()
     val loginLiveData: LiveData<ViewState<LoginResponse, ResponseStatus>> = _loginLiveData
 
 
     fun login(loginRequest: LoginRequest) {
-        scope.launch(dispatcherProvider.ui) {
+        viewModelScope.launch(dispatcherProvider.ui) {
             _loginLiveData.postValue(ViewState(status = ResponseStatus.LOADING))
             when (val response = repository.login(loginRequest)) {
                 is Result.Success -> {

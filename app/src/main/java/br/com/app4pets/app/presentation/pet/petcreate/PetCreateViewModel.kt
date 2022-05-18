@@ -2,7 +2,8 @@ package br.com.app4pets.app.presentation.pet.petcreate
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import br.com.app4pets.app.base.BaseViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import br.com.app4pets.app.base.ViewState
 import br.com.app4pets.app.data.network.Result
 import br.com.app4pets.app.data.network.models.PetRequest
@@ -15,14 +16,14 @@ import okhttp3.MultipartBody
 
 class PetCreateViewModel(private val dispatcherProvider: DispatcherProvider,
                          private val petsRepository: PetsRepository) :
-    BaseViewModel(dispatcherProvider) {
+    ViewModel() {
 
     private val _createPetLiveData = MutableLiveData<ViewState<Pet, ResponseStatus>>()
     val createPetLiveData: LiveData<ViewState<Pet, ResponseStatus>> = _createPetLiveData
 
     fun createPet(thumbnail: MultipartBody.Part, petRequest: PetRequest){
         _createPetLiveData.postValue(ViewState(status = ResponseStatus.LOADING))
-        scope.launch {
+        viewModelScope.launch {
             when (val response = petsRepository.createPet(thumbnail, petRequest)) {
                 is Result.Success -> {
                     _createPetLiveData.postValue(ViewState(status = ResponseStatus.UNLOADING))

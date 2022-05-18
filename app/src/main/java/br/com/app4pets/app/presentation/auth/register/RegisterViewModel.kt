@@ -2,7 +2,8 @@ package br.com.app4pets.app.presentation.auth.register
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import br.com.app4pets.app.base.BaseViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import br.com.app4pets.app.base.ViewState
 import br.com.app4pets.app.domain.models.ResponseStatus
 import br.com.app4pets.app.data.network.Result
@@ -15,13 +16,13 @@ import kotlinx.coroutines.launch
 class RegisterViewModel(
     private val dispatcherProvider: DispatcherProvider,
     private val repository: AuthRepository
-) : BaseViewModel(dispatcherProvider) {
+) : ViewModel() {
 
     private val _registerLiveData = MutableLiveData<ViewState<RegisterResponse, ResponseStatus>>()
     val registerLiveData: LiveData<ViewState<RegisterResponse, ResponseStatus>> = _registerLiveData
 
     fun register(registerRequest: RegisterRequest) {
-        scope.launch(dispatcherProvider.ui) {
+        viewModelScope.launch(dispatcherProvider.ui) {
             _registerLiveData.postValue(ViewState(status = ResponseStatus.LOADING))
             when (val response = repository.register(registerRequest)) {
                 is Result.Success -> {

@@ -8,7 +8,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 open class BaseActivity : AppCompatActivity() {
     private lateinit var dialog: SpotsDialog
-    val baseViewModel: BaseViewModel by viewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
